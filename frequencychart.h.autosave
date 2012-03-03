@@ -9,6 +9,7 @@ class FrequencyChart : public QWidget
 public:
     explicit FrequencyChart(QWidget *parent = 0);
     void setDict(QList<float>);
+    void setShift(int shift);
 
     QSize minimumSizeHint() const;
     QSize sizeHint() const;
