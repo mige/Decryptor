@@ -18,16 +18,16 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="CaesarCipherTab" name="caesarCipherTab">
        <attribute name="title">
         <string>Caesarova šifra</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="tab_2">
+      <widget class="AffineCipherTab" name="affineCipherTab">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Afinní šifra</string>
        </attribute>
       </widget>
      </widget>
@@ -75,6 +75,12 @@
    <class>CaesarCipherTab</class>
    <extends>QWidget</extends>
    <header>caesarciphertab.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AffineCipherTab</class>
+   <extends>QWidget</extends>
+   <header>affineciphertab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

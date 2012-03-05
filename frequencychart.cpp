@@ -55,8 +55,8 @@ void FrequencyChart::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::black);
     painter.setBrush(brush);
 
-    painter.drawLine(QPoint(10, 10), QPoint(10, height-30)); // |
-    painter.drawLine(QPoint(10, height-30), QPoint(width-10, height-30)); // __
+    painter.drawLine(QPoint(10, 10), QPoint(10, height-40)); // |
+    painter.drawLine(QPoint(10, height-40), QPoint(width-10, height-40)); // __
 
     float leap = (width-20)/26.0;
     float max = findMax(mEnglishDict);
@@ -69,17 +69,17 @@ void FrequencyChart::paintEvent(QPaintEvent *event)
     {
         float x = 10+leap*(i+1)-leap/2;
         painter.setPen(Qt::black);
-        painter.drawLine(QPoint(x, height-30), QPoint(x, height-25));
+        painter.drawLine(QPoint(x, height-40), QPoint(x, height-35));
         brush.setColor(Qt::blue);
         painter.setPen(Qt::blue);
-        painter.drawText(x-3, height-8, QChar(i+65));
+        painter.drawText(x-3, height-22, QChar(i+65));
         painter.setBrush(brush);
 
-        float barHeightEng = (height-40)*(1/(max/mEnglishDict[i]));
+        float barHeightEng = (height-50)*(1/(max/mEnglishDict[i]));
 
         if(mDict.length() != 0)
         {
-            painter.drawRect(x-7, 10+height-40-barHeightEng, 6, barHeightEng);
+            painter.drawRect(x-7, 10+height-50-barHeightEng, 6, barHeightEng);
             brush.setColor(Qt::red);
             painter.setPen(Qt::red);
             painter.setBrush(brush);
@@ -87,11 +87,12 @@ void FrequencyChart::paintEvent(QPaintEvent *event)
             if(idx < 0) idx = 26+idx;
             if(mDict[idx] > 0)
             {
-                float barHeight = (height-40)*(1/(max/mDict[idx]));
-                painter.drawRect(x+1, 10+height-40-barHeight, 6, barHeight);
+                float barHeight = (height-50)*(1/(max/mDict[idx]));
+                painter.drawRect(x+1, 10+height-50-barHeight, 6, barHeight);
             }
+            painter.drawText(x-3, height-8, QChar(idx+65));
         }
         else
-            painter.drawRect(x-3, 10+height-40-barHeightEng, 6, barHeightEng);
+            painter.drawRect(x-3, 10+height-50-barHeightEng, 6, barHeightEng);
     }
 }

@@ -24,6 +24,7 @@ void MainWindow::normalizeText()
         ui->encryptTextEdit->moveCursor(QTextCursor::End);
     }
     ui->caesarCipherTab->setEncryptText(normText);
+    ui->affineCipherTab->setEncryptText(normText);
 }
 
 MainWindow::~MainWindow()

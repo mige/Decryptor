@@ -14,12 +14,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     frequencychart.cpp \
     cipher.cpp \
-    caesarciphertab.cpp
+    caesarciphertab.cpp \
+    affineciphertab.cpp
 
 HEADERS  += mainwindow.h \
     frequencychart.h \
     cipher.h \
-    caesarciphertab.h
+    caesarciphertab.h \
+    affineciphertab.h
 
 FORMS    += mainwindow.ui \
-    caesarciphertab.ui
+    caesarciphertab.ui \
+    affineciphertab.ui
