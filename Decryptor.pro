@@ -12,9 +12,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    frequencychart.cpp
+    frequencychart.cpp \
+    cipher.cpp \
+    caesarciphertab.cpp
 
 HEADERS  += mainwindow.h \
-    frequencychart.h
+    frequencychart.h \
+    cipher.h \
+    caesarciphertab.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    caesarciphertab.ui

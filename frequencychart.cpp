@@ -11,11 +11,7 @@ FrequencyChart::FrequencyChart(QWidget *parent) :
                  << 0.07 << 0.002 << 0.008 << 0.04 << 0.024 << 0.067 << 0.075 << 0.049
                  << 0.001 << 0.06 << 0.063 << 0.091 << 0.028 << 0.01 << 0.024 << 0.002
                  << 0.02 << 0.001;
-    mDict << 0.082 << 0.015 << 0.028 << 0.043 << 0.127 << 0.022 << 0.02 << 0.061
-          << 0.07 << 0.002 << 0.008 << 0.04 << 0.024 << 0.067 << 0.075 << 0.049
-          << 0.001 << 0.06 << 0.063 << 0.091 << 0.028 << 0.01 << 0.024 << 0.002
-          << 0.02 << 0.001;
-    mShift = 5;
+    mShift = 0;
 }
 
 QSize FrequencyChart::minimumSizeHint() const
@@ -25,18 +21,20 @@ QSize FrequencyChart::minimumSizeHint() const
 
 QSize FrequencyChart::sizeHint() const
 {
-    return QSize(600, 400);
+    return QSize(800, 400);
 }
 
 void FrequencyChart::setDict(QList<float> dict)
 {
     mDict = dict;
-    mShift = 0;
+    //mShift = 0;
+    repaint();
 }
 
 void FrequencyChart::setShift(int shift)
 {
     mShift = shift;
+    repaint();
 }
 
 float FrequencyChart::findMax(QList<float> dict)
@@ -87,8 +85,11 @@ void FrequencyChart::paintEvent(QPaintEvent *event)
             painter.setBrush(brush);
             int idx = (i-mShift)%26;
             if(idx < 0) idx = 26+idx;
-            float barHeight = (height-40)*(1/(max/mDict[idx]));
-            painter.drawRect(x+1, 10+height-40-barHeight, 6, barHeight);
+            if(mDict[idx] > 0)
+            {
+                float barHeight = (height-40)*(1/(max/mDict[idx]));
+                painter.drawRect(x+1, 10+height-40-barHeight, 6, barHeight);
+            }
         }
         else
             painter.drawRect(x-3, 10+height-40-barHeightEng, 6, barHeightEng);

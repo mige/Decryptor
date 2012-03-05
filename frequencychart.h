@@ -13,6 +13,9 @@ public:
     QSize minimumSizeHint() const;
     QSize sizeHint() const;
 
+public slots:
+    void setShift(int shift);
+
 protected:
     void paintEvent(QPaintEvent *event);
     float findMax(QList<float> dict);
