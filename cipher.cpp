@@ -106,3 +106,15 @@ int Cipher::inverse(int n, int mod)
 
     return -1; // invalid inverse
 }
+
+int Cipher::gcd(int a, int b)
+{
+    if(a < 1 || b < 1) return -1;
+    while(b != 0)
+    {
+        int tmp = a;
+        a = b;
+        b = tmp % a;
+    }
+    return a;
+}

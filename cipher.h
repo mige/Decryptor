@@ -13,6 +13,7 @@ public:
     static QList<float> getFrequencyAnalysis(QString text);
     static QString normalize(QString text);
     static int inverse(int n, int mod);
+    static int gcd(int a, int b);
 };
 
 #endif // CIPHER_H

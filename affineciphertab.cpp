@@ -12,10 +12,13 @@ AffineCipherTab::AffineCipherTab(QWidget *parent) :
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), ui->frequencyChart, SLOT(setShift(int)));
     connect(ui->btnFindParameters, SIGNAL(clicked()), this, SLOT(findParameters()));
     connect(ui->btnDecrypt, SIGNAL(clicked()), this, SLOT(decryptText()));
+
+    ui->txtWrongA->setVisible(false);
 }
 
 void AffineCipherTab::findParameters()
 {
+    ui->txtWrongA->setVisible(false);
     int ex = ui->txtEX->text().at(0).toAscii()-65;
     int ey = ui->txtEY->text().at(0).toAscii()-65;
     int dx = ui->txtDX->text().at(0).toAscii()-65;
@@ -44,6 +47,8 @@ void AffineCipherTab::findParameters()
     if(a < 0) a += 26;
     int b = (ex-a*dx)%26;
     if(b < 0) b += 26;
+
+    if(Cipher::gcd(a, 26) != 1) ui->txtWrongA->setVisible(true);
 
     ui->spinBoxA->setValue(a);
     ui->spinBoxB->setValue(b);
