@@ -12,6 +12,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->encryptTextEdit, SIGNAL(textChanged()), this, SLOT(normalizeText()));
     connect(ui->caesarCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
+    connect(ui->affineCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
+
+    int inv = Cipher::inverse(15, 133);
+    qDebug() << inv;
 }
 
 void MainWindow::normalizeText()

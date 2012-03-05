@@ -18,6 +18,10 @@ public:
 public slots:
     void setEncryptText(QString text);
     void findParameters();
+    void decryptText();
+
+signals:
+    void decryptedText(QString text);
 
 private:
     Ui::AffineCipherTab *ui;

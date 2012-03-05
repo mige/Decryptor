@@ -15,6 +15,22 @@ QString Cipher::caesarDecrypt(QString text, int shift)
     return text;
 }
 
+QString Cipher::affineDecrypt(QString text, int a, int b)
+{
+    text = normalize(text);
+    int invA = inverse(a, 26);
+
+    for(int i = 0; i < text.length(); i++)
+    {
+        int ch = text[i].toAscii()-65;
+        ch = ((ch-b)*invA)%26;
+        if(ch < 0) ch += 26;
+        ch += 65;
+        text[i] = ch;
+    }
+    return text;
+}
+
 QList<float> Cipher::getFrequencyAnalysis(QString text)
 {
     text = normalize(text);
@@ -53,4 +69,40 @@ QString Cipher::normalize(QString text)
         }
     }
     return text;
+}
+
+/**
+ * Modular multiplicative inverse
+ */
+int Cipher::inverse(int n, int mod)
+{
+    if(n > mod) n =  n%mod;
+
+    // coefficients
+    int c0 = 0;
+    int c1 = 1;
+
+    int prev = mod;
+    int inv;
+
+    while(n != 0)
+    {
+        int t = prev/n;
+        int tmp = n;
+        n = prev%n;
+        prev = tmp;
+
+        inv = c0-c1*t;
+        c0 = c1;
+        c1 = inv;
+
+        if(n == 1)
+        {
+            inv = inv%mod;
+            if(inv < 0) inv += mod;
+            return inv;
+        }
+    }
+
+    return -1; // invalid inverse
 }
