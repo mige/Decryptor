@@ -17,6 +17,7 @@ public:
 
 public slots:
     void normalizeText();
+    void countIndexOfCoincidence();
     //void showDecryptText(QString text);
     
 private:

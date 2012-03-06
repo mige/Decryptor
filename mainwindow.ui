@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="CaesarCipherTab" name="caesarCipherTab">
        <attribute name="title">
@@ -28,6 +28,11 @@
       <widget class="AffineCipherTab" name="affineCipherTab">
        <attribute name="title">
         <string>Afinní šifra</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="vigenereCipher">
+       <attribute name="title">
+        <string>Vigenèrova šifra</string>
        </attribute>
       </widget>
      </widget>
@@ -67,7 +72,37 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuSoubor">
+    <property name="title">
+     <string>Soubor</string>
+    </property>
+    <addaction name="actionUkon_it"/>
+   </widget>
+   <widget class="QMenu" name="menuN_stroje">
+    <property name="title">
+     <string>Nástroje</string>
+    </property>
+    <addaction name="actionVypo_tat_index_koincidence"/>
+   </widget>
+   <widget class="QMenu" name="menuN_pov_da">
+    <property name="title">
+     <string>Nápověda</string>
+    </property>
+   </widget>
+   <addaction name="menuSoubor"/>
+   <addaction name="menuN_stroje"/>
+   <addaction name="menuN_pov_da"/>
   </widget>
+  <action name="actionVypo_tat_index_koincidence">
+   <property name="text">
+    <string>Vypočítat index koincidence</string>
+   </property>
+  </action>
+  <action name="actionUkon_it">
+   <property name="text">
+    <string>Ukončit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

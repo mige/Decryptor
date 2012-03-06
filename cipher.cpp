@@ -118,3 +118,30 @@ int Cipher::gcd(int a, int b)
     }
     return a;
 }
+
+//0,0586844809866393
+float Cipher::indexOfCoincidence(QString text)
+{
+    text = normalize(text);
+    int cnt = text.length();
+    float ic;
+    QList<int> countChar;
+    float sum = 0.0;
+
+    for(int i = 0; i <= 25; i++)
+        countChar << 0;
+
+    for(int i = 0; i < cnt; i++)
+    {
+        int ch = text.at(i).toAscii();
+        ch-=65;
+        countChar[ch]++;
+    }
+
+    for(int i = 0; i <= 25; i++)
+        sum += countChar[i]*(countChar[i]-1);
+
+    ic = sum/(cnt*(cnt-1));
+
+    return ic;
+}

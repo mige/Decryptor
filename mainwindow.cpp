@@ -3,6 +3,7 @@
 
 #include <cipher.h>
 #include <QDebug>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->actionVypo_tat_index_koincidence, SIGNAL(triggered()), this, SLOT(countIndexOfCoincidence()));
     connect(ui->encryptTextEdit, SIGNAL(textChanged()), this, SLOT(normalizeText()));
     connect(ui->caesarCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
     connect(ui->affineCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
@@ -29,6 +31,13 @@ void MainWindow::normalizeText()
     }
     ui->caesarCipherTab->setEncryptText(normText);
     ui->affineCipherTab->setEncryptText(normText);
+}
+
+void MainWindow::countIndexOfCoincidence()
+{
+    float ic = Cipher::indexOfCoincidence(ui->encryptTextEdit->toPlainText());
+    qDebug() << ic;
+    QMessageBox::information(this, tr("Decryptor - Index koincidence"), tr("Index koincidence: <b>")+QString::number(ic)+tr("</b><br />Pokud IC ~ 0.067, tak se může jednat o monoalfabetickou substituci."));
 }
 
 MainWindow::~MainWindow()
