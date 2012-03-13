@@ -15,9 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->encryptTextEdit, SIGNAL(textChanged()), this, SLOT(normalizeText()));
     connect(ui->caesarCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
     connect(ui->affineCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
-
-    int inv = Cipher::inverse(15, 133);
-    qDebug() << inv;
+    connect(ui->substitutionWithKeyTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
 }
 
 void MainWindow::normalizeText()
@@ -31,13 +29,13 @@ void MainWindow::normalizeText()
     }
     ui->caesarCipherTab->setEncryptText(normText);
     ui->affineCipherTab->setEncryptText(normText);
+    ui->substitutionWithKeyTab->setEncryptText(normText);
 }
 
 void MainWindow::countIndexOfCoincidence()
 {
     float ic = Cipher::indexOfCoincidence(ui->encryptTextEdit->toPlainText());
-    qDebug() << ic;
-    QMessageBox::information(this, tr("Decryptor - Index koincidence"), tr("Index koincidence: <b>")+QString::number(ic)+tr("</b><br />Pokud IC ~ 0.067, tak se může jednat o monoalfabetickou substituci."));
+    QMessageBox::information(this, tr("Decryptor - Index koincidence"), tr("Index koincidence: <b>")+QString::number(ic)+tr("</b><br />Pokud IC ~ 0.06689, tak se může jednat o monoalfabetickou substituci."));
 }
 
 MainWindow::~MainWindow()

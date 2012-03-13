@@ -15,14 +15,20 @@ SOURCES += main.cpp\
     frequencychart.cpp \
     cipher.cpp \
     caesarciphertab.cpp \
-    affineciphertab.cpp
+    affineciphertab.cpp \
+    substitutionwithkey.cpp
 
 HEADERS  += mainwindow.h \
     frequencychart.h \
     cipher.h \
     caesarciphertab.h \
-    affineciphertab.h
+    affineciphertab.h \
+    substitutionwithkey.h
 
 FORMS    += mainwindow.ui \
     caesarciphertab.ui \
-    affineciphertab.ui
+    affineciphertab.ui \
+    substitutionwithkey.ui
+
+OTHER_FILES += \
+    README

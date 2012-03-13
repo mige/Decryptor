@@ -119,7 +119,6 @@ int Cipher::gcd(int a, int b)
     return a;
 }
 
-//0,0586844809866393
 float Cipher::indexOfCoincidence(QString text)
 {
     text = normalize(text);

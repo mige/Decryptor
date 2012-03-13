@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>638</width>
-    <height>505</height>
+    <width>867</width>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="CaesarCipherTab" name="caesarCipherTab">
        <attribute name="title">
@@ -30,7 +30,12 @@
         <string>Afinní šifra</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="vigenereCipher">
+      <widget class="SubstitutionWithKey" name="substitutionWithKeyTab">
+       <attribute name="title">
+        <string>Substituce s klíčem</string>
+       </attribute>
+      </widget>
+      <widget class="QWidget" name="vigenereCipherTab">
        <attribute name="title">
         <string>Vigenèrova šifra</string>
        </attribute>
@@ -54,10 +59,22 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QPlainTextEdit" name="encryptTextEdit"/>
+       <widget class="QPlainTextEdit" name="encryptTextEdit">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPlainTextEdit" name="decrpytTextEdit"/>
+       <widget class="QPlainTextEdit" name="decrpytTextEdit">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+         </font>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
@@ -68,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>638</width>
+     <width>867</width>
      <height>20</height>
     </rect>
    </property>
@@ -118,7 +135,30 @@
    <header>affineciphertab.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>SubstitutionWithKey</class>
+   <extends>QWidget</extends>
+   <header>substitutionwithkey.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionUkon_it</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>318</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
