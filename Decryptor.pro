@@ -16,19 +16,22 @@ SOURCES += main.cpp\
     cipher.cpp \
     caesarciphertab.cpp \
     affineciphertab.cpp \
-    substitutionwithkey.cpp
+    substitutionwithkey.cpp \
+    vigenereciphertab.cpp
 
 HEADERS  += mainwindow.h \
     frequencychart.h \
     cipher.h \
     caesarciphertab.h \
     affineciphertab.h \
-    substitutionwithkey.h
+    substitutionwithkey.h \
+    vigenereciphertab.h
 
 FORMS    += mainwindow.ui \
     caesarciphertab.ui \
     affineciphertab.ui \
-    substitutionwithkey.ui
+    substitutionwithkey.ui \
+    vigenereciphertab.ui
 
 OTHER_FILES += \
     README

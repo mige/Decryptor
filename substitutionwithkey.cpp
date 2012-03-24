@@ -49,10 +49,20 @@ void SubstitutionWithKey::decryptText()
 {
     QString decryptedTextString;
 
+    QList<char> dict;
+
+    for(int i = 0; i < 26; i++) dict.append('_');
+
+    for(int i = 0; i < 26; i++)
+    {
+        int idx = mSubstitutonLineEdit[i]->text().toAscii().at(0)-65;
+        dict[idx] = i+65;
+    }
+
     for(int i = 0; i < mEncryptText.length(); i++)
     {
         int idx = mEncryptText[i].toAscii()-65;
-        QString ch = mSubstitutonLineEdit[idx]->text() == "" ? "_" : mSubstitutonLineEdit[idx]->text();
+        char ch = dict[idx];
         decryptedTextString.append(ch);
     }
     emit decryptedText(decryptedTextString);

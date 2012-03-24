@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="CaesarCipherTab" name="caesarCipherTab">
        <attribute name="title">
@@ -35,7 +35,7 @@
         <string>Substituce s klíčem</string>
        </attribute>
       </widget>
-      <widget class="QWidget" name="vigenereCipherTab">
+      <widget class="VigenereCipherTab" name="vigenereCipherTab">
        <attribute name="title">
         <string>Vigenèrova šifra</string>
        </attribute>
@@ -139,6 +139,12 @@
    <class>SubstitutionWithKey</class>
    <extends>QWidget</extends>
    <header>substitutionwithkey.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VigenereCipherTab</class>
+   <extends>QWidget</extends>
+   <header>vigenereciphertab.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

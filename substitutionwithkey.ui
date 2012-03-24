@@ -59,7 +59,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Šifrovaný znak = Otevřený znak</string>
+        <string>Otevřený znak = Šifrovaný znak</string>
        </property>
       </widget>
      </item>
