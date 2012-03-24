@@ -144,3 +144,11 @@ float Cipher::indexOfCoincidence(QString text)
 
     return ic;
 }
+
+float Cipher::friedmannTest(QString text)
+{
+    text = normalize(text);
+    float ic = indexOfCoincidence(text);
+    int n = text.length();
+    return (0.027*n)/((n-1)*ic-0.038*n+0.065);
+}

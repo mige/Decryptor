@@ -15,6 +15,7 @@ public:
     static int inverse(int n, int mod);
     static int gcd(int a, int b);
     static float indexOfCoincidence(QString text);
+    static float friedmannTest(QString text);
 };
 
 #endif // CIPHER_H

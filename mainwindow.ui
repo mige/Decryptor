@@ -100,6 +100,7 @@
      <string>Nástroje</string>
     </property>
     <addaction name="actionVypo_tat_index_koincidence"/>
+    <addaction name="actionFriedmannuv_test"/>
    </widget>
    <widget class="QMenu" name="menuN_pov_da">
     <property name="title">
@@ -118,6 +119,11 @@
   <action name="actionUkon_it">
    <property name="text">
     <string>Ukončit</string>
+   </property>
+  </action>
+  <action name="actionFriedmannuv_test">
+   <property name="text">
+    <string>Friedmannův test</string>
    </property>
   </action>
  </widget>

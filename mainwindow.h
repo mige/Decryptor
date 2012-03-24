@@ -18,6 +18,7 @@ public:
 public slots:
     void normalizeText();
     void countIndexOfCoincidence();
+    void countFriedmannTest();
     //void showDecryptText(QString text);
     
 private:
