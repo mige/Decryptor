@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->caesarCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
     connect(ui->affineCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
     connect(ui->substitutionWithKeyTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
+    connect(ui->vigenereCipherTab, SIGNAL(decryptedText(QString)), ui->decrpytTextEdit, SLOT(setPlainText(QString)));
 }
 
 void MainWindow::normalizeText()
@@ -31,6 +32,7 @@ void MainWindow::normalizeText()
     ui->caesarCipherTab->setEncryptText(normText);
     ui->affineCipherTab->setEncryptText(normText);
     ui->substitutionWithKeyTab->setEncryptText(normText);
+    ui->vigenereCipherTab->setEncryptText(normText);
 }
 
 void MainWindow::countIndexOfCoincidence()

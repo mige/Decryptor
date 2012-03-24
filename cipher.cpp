@@ -38,7 +38,7 @@ QString Cipher::vigenereDecrypt(QString text, QString key)
     for(int i = 0; i < text.length(); i++)
     {
         int ch = text[i].toAscii();
-        ch -= key[i%key.length()];
+        ch -= key[i%key.length()].toAscii()-65;
         if(ch < 65) ch += 26;
         text[i] = ch;
     }
