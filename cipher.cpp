@@ -31,6 +31,21 @@ QString Cipher::affineDecrypt(QString text, int a, int b)
     return text;
 }
 
+QString Cipher::vigenereDecrypt(QString text, QString key)
+{
+    text = normalize(text);
+
+    for(int i = 0; i < text.length(); i++)
+    {
+        int ch = text[i].toAscii();
+        ch -= key[i%key.length()];
+        if(ch < 65) ch += 26;
+        text[i] = ch;
+    }
+
+    return text;
+}
+
 QList<float> Cipher::getFrequencyAnalysis(QString text)
 {
     text = normalize(text);
