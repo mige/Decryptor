@@ -66,6 +66,7 @@ void VigenereCipherTab::setSubDict(int idx)
 
 void VigenereCipherTab::setSubShift(int shift)
 {
+    if(ui->spinBox->value() <= 0) return;
     ui->frequencyChart->setShift(shift);
     QString key = ui->txtKey->text();
     key[ui->comboBox->currentIndex()] = -1*shift+65;
